@@ -12,9 +12,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 16
 
-      - run: pnpm --filter @game/desktop build
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build desktop
+        run: pnpm --filter @game/desktop build
