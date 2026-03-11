@@ -17,6 +17,4 @@ jobs:
         with:
           node-version: 16
 
-      - run: npm ci
-
       - run: pnpm --filter @game/desktop build
